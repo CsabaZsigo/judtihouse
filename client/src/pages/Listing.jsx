@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import { useSelector } from 'react-redux';
@@ -60,14 +60,16 @@ export default function Listing() {
         <div>
           <Swiper navigation>
             {listing.imageUrls.map((url) => (
-              <SwiperSlide key={url}>
+              <SwiperSlide injectStylesUrls={url} key={url}> 
+                <Link to={url}>
                 <div
                   className='h-[550px]'
                   style={{
                     background: `url(${url}) center no-repeat`,
                     backgroundSize: 'cover',
                   }}
-                ></div>
+                  ></div>
+                  </Link>                
               </SwiperSlide>
             ))}
           </Swiper>
