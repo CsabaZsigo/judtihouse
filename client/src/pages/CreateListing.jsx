@@ -33,7 +33,7 @@ export default function CreateListing() {
   const [loading, setLoading] = useState(false);
   console.log(formData);
   const handleImageSubmit = (e) => {
-    if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
+    if (files.length > 0 && files.length + formData.imageUrls.length < 16) { // here we declare the maximum amount if images to a single listing
       setUploading(true);
       setImageUploadError(false);
       const promises = [];
@@ -55,7 +55,7 @@ export default function CreateListing() {
           setUploading(false);
         });
     } else {
-      setImageUploadError('You can only upload 6 images per listing');
+      setImageUploadError('You can only upload 15 images per listing');
       setUploading(false);
     }
   };
@@ -282,7 +282,7 @@ export default function CreateListing() {
               <div className='flex flex-col items-center'>
                 <p>Regular price</p>
                 {formData.type === 'rent' && (
-                  <span className='text-xs'>($ / month)</span>
+                  <span className='text-xs'>(Forint / hónap)</span>
                 )}
               </div>
             </div>
@@ -302,7 +302,7 @@ export default function CreateListing() {
                   <p>Discounted price</p>
 
                   {formData.type === 'rent' && (
-                    <span className='text-xs'>($ / month)</span>
+                    <span className='text-xs'>(Forint / hónap)</span>
                   )}
                 </div>
               </div>
@@ -311,9 +311,9 @@ export default function CreateListing() {
         </div>
         <div className='flex flex-col flex-1 gap-4'>
           <p className='font-semibold'>
-            Images:
+            Képek:
             <span className='font-normal text-gray-600 ml-2'>
-              The first image will be the cover (max 6)
+             Az első feltölött kép kerül beállításra listázási képként (max 15)
             </span>
           </p>
           <div className='flex gap-4'>

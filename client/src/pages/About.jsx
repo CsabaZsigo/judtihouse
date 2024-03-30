@@ -3,12 +3,21 @@ import React from 'react'
 export default function About() {
   return (
     <div className='py-20 px-4 max-w-6xl mx-auto'>
-      <h1 className='text-3xl font-bold mb-4 text-slate-800'>About Sahand Estate</h1>
-      <p className='mb-4 text-slate-700'>Sahand Estate is a leading real estate agency that specializes in helping clients buy, sell, and rent properties in the most desirable neighborhoods. Our team of experienced agents is dedicated to providing exceptional service and making the buying and selling process as smooth as possible.</p>
-      <p className='mb-4 text-slate-700'>
-      Our mission is to help our clients achieve their real estate goals by providing expert advice, personalized service, and a deep understanding of the local market. Whether you are looking to buy, sell, or rent a property, we are here to help you every step of the way.
-      </p>
-      <p className='mb-4 text-slate-700'>Our team of agents has a wealth of experience and knowledge in the real estate industry, and we are committed to providing the highest level of service to our clients. We believe that buying or selling a property should be an exciting and rewarding experience, and we are dedicated to making that a reality for each and every one of our clients.</p>
+      <h1 className='text-3xl font-bold mb-4 text-slate-800'>Pittner Györgyné Judit vagyok</h1>
+      <p className='mb-4 text-slate-200'>Ingatlanközvetítői tevékenységemet, a budapesti Brókernet Cégcsoport, Platea Ingatlan üzletágában kezdtem 2011-ben. Rövid idő múlva, a székesfehérvári Élvit Ingatlaniroda munkatársa lettem.</p>
+      <p className='mb-4 text-slate-200'>
+      2022. szeptember 1-től egyéni vállalkozóként dolgozom.
+<br/>
+Célom az ingatlan-eladók, érdeklődők, majd később vásárlók maximális kiszolgálása elképzeléseik megvalósításában, végül a mindkét fél érdekeit magában foglaló Adásvételi Szerződés aláírására.
+<br/>
+Tevékenységemet Székesfehérváron, KATÁS vállalkozóként, áfa-mentesen végzem, kizárólag magánszemélyek szolgálatában.
+<br/>
+A több, mint egy évtized során végzett munkám visszajelzései alapján, empatikus készségem, szakmai felkészültségem és tapasztalataim, megbízhatóságom alkalmas ügyfeleim elégedettségének kivívására.</p>
+      <p className='mb-4 text-slate-200'>Több ügyvédi irodával, bankfüggetlen hitel ügyintézővel, energetikai szakemberrel, földmérővel állok kapcsolatban, akik további garanciát jelentenek a korrekt és teljes körű ügyintézésre.
+
+A sikeres együttműködés reményében, előzetes telefonos egyeztetés alapján, sok szeretettel várom Önöket irodámban!
+
+Judit</p>
     </div>
   )
 }
