@@ -61,7 +61,7 @@ export default function Listing() {
           <Swiper navigation>
             {listing.imageUrls.map((url) => (
               <SwiperSlide injectStylesUrls={url} key={url}> 
-                <Link to={url}>
+                <Link to={url} target="_blank">
                 <div
                   className='h-[550px]'
                   style={{
