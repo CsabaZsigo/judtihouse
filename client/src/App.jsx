@@ -11,6 +11,8 @@ import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
 import ContactMe from './pages/ContactMe';
+import Footer from './components/Footer';
+import Tnc from './pages/Tnc';
 
 export default function App() {
   return (
@@ -22,6 +24,7 @@ export default function App() {
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/about' element={<About />} />
         <Route path='/contactme' element={<ContactMe />} />
+        <Route path='/tnc' element={<Tnc />} />
         <Route path='/search' element={<Search />} />
         <Route path='/listing/:listingId' element={<Listing />} />
 
@@ -34,6 +37,7 @@ export default function App() {
           />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
