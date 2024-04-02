@@ -55,9 +55,9 @@ export default function Header() {
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
           >
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
+            <span className="block h-0.5 w-8 animate-pulse bg-slate-200"></span>
+            <span className="block h-0.5 w-8 animate-pulse bg-slate-200"></span>
+            <span className="block h-0.5 w-8 animate-pulse bg-slate-200"></span>
           </div>
 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
@@ -66,7 +66,7 @@ export default function Header() {
               onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
             >
               <svg
-                className="h-8 w-8 text-gray-600"
+                className="h-8 w-8 text-slate-200"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -80,17 +80,17 @@ export default function Header() {
             </div>
             <ul className="MENU-LINK-MOBILE-OPEN  flex flex-col items-center justify-between min-h-[250px]">
             <Link to='/'>
-            <li className='hidden sm:inline text-slate-700 text-xl hover:underline'>
+            <li className='hidden sm:inline text-slate-200 text-xl hover:underline'>
               Főoldal
             </li>
           </Link>
           <Link to='/about'>
-            <li className='hidden sm:inline text-slate-700 text-xl hover:underline'>
+            <li className='hidden sm:inline text-slate-200 text-xl hover:underline'>
               Magamról
             </li>
           </Link>
           <Link to='/contactme'>
-          <li className='hidden sm:inline text-slate-700 text-xl hover:underline'>
+          <li className='hidden sm:inline text-slate-200 text-xl hover:underline'>
               Kapcsolatfelvétel
             </li>
           </Link>
