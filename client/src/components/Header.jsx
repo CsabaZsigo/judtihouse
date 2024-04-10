@@ -102,7 +102,7 @@ export default function Header() {
                 alt='profile'
               />
             ) : (
-              <li className=' text-slate-700 hover:underline'> Sign in</li>
+             false // <li className=' text-slate-700 hover:underline'> Sign in</li>
             )}
           </Link>
             </ul>
@@ -133,7 +133,7 @@ export default function Header() {
                 alt='profile'
               />
             ) : (
-              <li className=' text-slate-700 hover:underline'> Sign in</li>
+              false // <li className=' text-slate-700 hover:underline'> Sign in</li>
             )}
           </Link>
         </ul>

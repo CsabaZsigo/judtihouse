@@ -73,6 +73,7 @@ export default function Home() {
           offerListings.length > 0 &&
           offerListings.map((listing) => (
             <SwiperSlide>
+              <Link to={`/listing/${listing._id}`} target="_blank">
               <div
                 style={{
                   background: `url(${listing.imageUrls[0]}) center no-repeat`,
@@ -81,9 +82,19 @@ export default function Home() {
                 className='h-[500px]'
                 key={listing._id}
               ></div>
+              </Link>
+              <style>{`
+        .swiper-button-prev, .swiper-button-next{
+          background-color: black;
+          border-radius: 50%;
+
+        }
+        `}</style>
             </SwiperSlide>
           ))}
       </Swiper>
+
+
 
       {/* listing results for offer, sale and rent */}
 
