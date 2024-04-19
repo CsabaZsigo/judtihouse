@@ -20,7 +20,7 @@ export default function CreateListing() {
     level: 'foldszint',
     city: '',
     street: '',
-    streetType: '',
+    streetType: 'út',
     houseNumber: '',
     door: '',
     cityType: 'Település',
@@ -177,6 +177,8 @@ export default function CreateListing() {
       e.target.type === 'number' ||
       e.target.type === 'text' ||
       e.target.type === 'textarea' ||
+      e.target.type === 'tel' ||
+      e.target.type === 'email' ||
       e.target.type === 'date'
     ) {
       setFormData({
@@ -305,7 +307,6 @@ export default function CreateListing() {
             className='border p-3 rounded-lg'
             id='door'
             maxLength='10'
-            required
             onChange={handleChange}
             value={formData.door}
           />
@@ -323,7 +324,6 @@ export default function CreateListing() {
                 id='hrsz'
                 maxLength='62'
                 placeholder='Helyrajzi szám'
-                required
                 className='p-3 border border-gray-300 rounded-lg'
                 onChange={handleChange}
                 value={formData.hrsz}
@@ -421,7 +421,6 @@ export default function CreateListing() {
             className='border p-3 rounded-lg max-w-24'
             id='halfRooms'
             min='1'
-            required
             onChange={handleChange}
             value={formData.halfRooms}
           />
@@ -532,7 +531,6 @@ export default function CreateListing() {
                     placeholder='pelda@email.cim'
                     className='border p-3 rounded-lg'
                     id="email"
-                    pattern=".+@example\.com"
                     size="30"
                     required
                     onChange={handleChange}
@@ -544,7 +542,6 @@ export default function CreateListing() {
                     id='ownerCity'
                     placeholder='Irányítószám, település'
                     maxLength='62'
-                    required
                     className='p-3 border border-gray-300 rounded-lg'
                     onChange={handleChange}
                     value={formData.ownerCity}
@@ -555,7 +552,6 @@ export default function CreateListing() {
                     id='ownerStreet'
                     placeholder='Utca, házszám'
                     maxLength='62'
-                    required
                     className='p-3 border border-gray-300 rounded-lg'
                     onChange={handleChange}
                     value={formData.ownerStreet}
