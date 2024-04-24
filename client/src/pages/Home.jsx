@@ -60,14 +60,14 @@ export default function Home() {
           </Link>
         </div>
         <Link
-          to={'/search'}
+          to={'/'}
           className='text-xs sm:text-sm text-blue-800 font-bold hover:underline'
         >
           Keresésre fel!
         </Link>
       </div>
 
-      {/* swiper */}
+{/*       
       <Swiper navigation>
         {offerListings &&
           offerListings.length > 0 &&
@@ -85,20 +85,19 @@ export default function Home() {
               </Link>
               <style>{`
         .swiper-button-prev, .swiper-button-next{
-          background-color: black;
-          border-radius: 50%;
+
 
         }
         `}</style>
             </SwiperSlide>
           ))}
-      </Swiper>
+      </Swiper> */}
 
 
 
       {/* listing results for offer, sale and rent */}
 
-      <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10'>
+      {/* <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10'>
         {offerListings && offerListings.length > 0 && (
           <div className=''>
             <div className='my-3'>
@@ -138,7 +137,7 @@ export default function Home() {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
