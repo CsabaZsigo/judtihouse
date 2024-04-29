@@ -13,11 +13,13 @@ import Search from './pages/Search';
 import ContactMe from './pages/ContactMe';
 import Footer from './components/Footer';
 import Tnc from './pages/Tnc';
+import Header2 from './components/Header2';
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Header />
+    
+      <Header2 />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/sign-in' element={<SignIn />} />
@@ -37,7 +39,7 @@ export default function App() {
           />
         </Route>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

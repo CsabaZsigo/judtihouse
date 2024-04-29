@@ -48,9 +48,14 @@ export default function Home() {
   return (
     <div>
       {/* top */}
+      <p className='text-slate-400'>Pittner Györgyné</p>
+      <div className='flex'>
+      <img className='flex-initial w-1/5 object-cover ' src="..\src\assets\images\profile.jpg" alt="Judit profilkép" />
+      <img className='flex-initial w-4/5 ' src="..\src\assets\images\logo.webp" alt="JuditHouse Logo" />
+      </div>
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
-        <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
-          Találjuk meg közösen az <span className='text-slate-500'>új otthonát!</span>
+        <h1 className='text-red-700 font-bold text-3xl lg:text-6xl'>
+          Találjuk meg közösen az <span className='text-red-500'>új otthonát!</span>
          
         </h1>
         <div className='text-gray-400 '>
@@ -65,6 +70,45 @@ export default function Home() {
         >
           Keresésre fel!
         </Link>
+        
+        <ul className="text-2xl	 flex items-center flex-col md:flex-row md:gap-3">
+        <Link to='/search'>
+            <li className=' sm:inline text-slate-200 hover:underline'>
+              Ingatlanok
+            </li>
+          </Link>
+          <Link to='/about'>
+            <li className=' sm:inline text-slate-200 hover:underline'>
+              Magamról
+            </li>
+          </Link>
+          <Link to='/contactme'>
+          <li className=' sm:inline text-slate-200 hover:underline'>
+              Kapcsolatfelvétel
+            </li>
+          </Link>
+          
+          <Link to={'/tnc'}>
+            <li className='sm:inline text-slate-200 hover:underline'>
+            Adatkezelési szabályzat
+            </li>
+            </Link>
+          
+          {/* <Link to='/profile'>
+            {currentUser ? (
+              <img
+                className='rounded-full h-7 w-7 object-cover'
+                src={currentUser.avatar}
+                alt='profile'
+              />
+            ) : (
+              false // <li className=' text-slate-700 hover:underline'> Sign in</li>
+            )}
+          </Link> */}
+        </ul>
+        <img src="..\src\assets\images\house.jpg" alt="Fénykép egy modern házról" />
+
+        
       </div>
 
 {/*       
