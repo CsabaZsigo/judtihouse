@@ -48,17 +48,17 @@ export default function Home() {
   return (
     <div>
       {/* top */}
-      <p className='text-slate-400'>Pittner Györgyné</p>
+      <p className='text-slate-400 text-3xl'>Pittner Györgyné Judit</p>
       <div className='flex'>
       <img className='flex-initial w-1/5 object-cover ' src="https://github.com/CsabaZsigo/judtihouse/blob/main/client/src/assets/images/profile.jpg?raw=true" alt="Judit profilkép" />
       <img className='flex-initial w-4/5 ' src="https://raw.githubusercontent.com/CsabaZsigo/judtihouse/main/client/src/assets/images/logo.webp" alt="JuditHouse Logo" />
       </div>
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='text-red-700 font-bold text-3xl lg:text-6xl'>
-          Találjuk meg közösen az <span className='text-red-500'>új otthonát!</span>
+          Találjuk meg közösen új otthonát!
          
         </h1>
-        <div className='text-gray-400 '>
+        <div className=' text-3xl text-gray-100 '>
           <Link to="/about"
           className='font-bold hover:underline'>
           Várom hívását, hogy segíthessek!
@@ -71,7 +71,7 @@ export default function Home() {
           Keresésre fel!
         </Link>
         
-        <ul className="text-2xl	 flex items-center flex-col md:flex-row md:gap-3">
+        <ul className="text-2xl	place-content-evenly flex items-center flex-col md:flex-row md:gap-3">
         <Link to='/'> 
         { /* Make it /search */ }
             <li className=' sm:inline text-slate-200 hover:underline'>
