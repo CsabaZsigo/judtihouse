@@ -72,12 +72,7 @@ export default function Home() {
         </Link>
         
         <ul className="text-2xl	place-content-evenly flex items-center flex-col md:flex-row md:gap-3">
-        <Link to='/'> 
-        { /* Make it /search */ }
-            <li className=' sm:inline text-slate-200 hover:underline'>
-              Ingatlanok
-            </li>
-          </Link>
+       
           <Link to='/about'>
             <li className=' sm:inline text-slate-200 hover:underline'>
               Magamról
@@ -107,7 +102,12 @@ export default function Home() {
             )}
           </Link> */}
         </ul>
-        <img src="https://github.com/CsabaZsigo/judtihouse/blob/main/client/src/assets/images/house.jpg?raw=true" alt="Fénykép egy modern házról" />
+        <div className='relative'>
+        <img className='w-full' src="https://github.com/CsabaZsigo/judtihouse/blob/main/client/src/assets/images/house.jpg?raw=true" alt="Fénykép egy modern házról" />
+          <Link className='absolute text-4xl top-2/3 left-1/4 bg-slate-500 text-slate-200 p-4 rounded-lg hover:bg-blue-800 m-2' to={'/'}>
+            Ingatlanok
+          </Link>
+        </div>
 
         
       </div>

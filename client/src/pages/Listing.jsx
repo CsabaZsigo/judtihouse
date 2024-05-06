@@ -5,6 +5,8 @@ import SwiperCore from 'swiper';
 import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle';
+import 'swiper/css/pagination';
+
 import {
   FaBath,
   FaBed,
@@ -57,19 +59,22 @@ export default function Listing() {
         <p className='text-center my-7 text-2xl'>Something went wrong!</p>
       )}
       {listing && !loading && !error && (
-        <div>
-          <Swiper navigation>
+                  <div className='flex flex-col max-w-6xl mx-auto p-3 my-7 gap-4'>
+        <div >
+          <Swiper setWrapperSize className='max-h-6xl'  Pagination navigation >
             {listing.imageUrls.map((url) => (
-              <SwiperSlide injectStylesUrls={url} key={url}> 
-                <Link to={url} target="_blank">
-                <div
-                  className='h-[550px]'
+              <SwiperSlide className='flex justify-center h-[60vh]' injectStylesUrls={url} key={url}> 
+                <Link to={`${url}`} target={'_blank'}>
+                <img className='scale-125' src={url} alt="A hirdetés képe" />
+                </Link>
+                {/* <div
+                  className='h-[550px] max-w-6xl'
                   style={{
                     background: `url(${url}) center no-repeat`,
                     backgroundSize: 'cover',
                   }}
-                  ></div>
-                  </Link>                
+                  ></div> */}
+                                
               </SwiperSlide>
             ))}
           </Swiper>
@@ -90,54 +95,46 @@ export default function Listing() {
               Hivatkozás kimásolva
             </p>
           )}
-          <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
+
             <p className='text-2xl font-semibold'>
-              {listing.name} - ${' '}
+              {listing.name} {' '}
               {listing.offer
-                ? listing.discountPrice.toLocaleString('en-US')
-                : listing.regularPrice.toLocaleString('en-US')}
+                ? listing.discountPrice.toLocaleString('hu-HU')
+                : listing.regularPrice.toLocaleString('hu-HU')}
               {listing.type === 'rent' && ' / month'}
+              {' '} Forint
             </p>
-            <p className='flex items-center mt-6 gap-2 text-slate-600  text-sm'>
-              <FaMapMarkerAlt className='text-green-700' />
-              {listing.address}
-            </p>
-            <div className='flex gap-4'>
-              <p className='bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
-                {listing.type === 'rent' ? 'For Rent' : 'For Sale'}
-              </p>
-              {listing.offer && (
-                <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
-                  ${+listing.regularPrice - +listing.discountPrice} OFF
-                </p>
-              )}
-            </div>
-            <p className='text-slate-800'>
-              <span className='font-semibold text-black'>Description - </span>
-              {listing.description}
-            </p>
-            <ul className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
+            <ul className='text-green-600 font-semibold text-xl flex flex-wrap items-center gap-4 sm:gap-6'>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaBed className='text-lg' />
                 {listing.bedrooms > 1
-                  ? `${listing.bedrooms} beds `
-                  : `${listing.bedrooms} bed `}
+                  ? `${listing.rooms} szoba `
+                  : `${listing.rooms} szoba `}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaBath className='text-lg' />
                 {listing.bathrooms > 1
-                  ? `${listing.bathrooms} baths `
-                  : `${listing.bathrooms} bath `}
+                  ? `${listing.bathrooms} fürdőszoba `
+                  : `${listing.bathrooms} fürdőszoba `}
               </li>
-              <li className='flex items-center gap-1 whitespace-nowrap '>
+              {/* <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />
                 {listing.parking ? 'Parking spot' : 'No Parking'}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaChair className='text-lg' />
                 {listing.furnished ? 'Furnished' : 'Unfurnished'}
-              </li>
+              </li> */}
             </ul>
+            <p className='flex items-center mt-6 gap-2 text-slate-200 font-bold  text-2xl'>
+              <FaMapMarkerAlt className='text-green-600' />
+              {listing.city}
+            </p>
+
+            <p className='text-slate-200 text-xl'>
+                            {listing.description}
+            </p>
+
             {/* {currentUser && listing.userRef !== currentUser._id && !contact && (
               <button
                 onClick={() => setContact(true)}
