@@ -21,6 +21,7 @@ export default function Search() {
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');
+    const cityFromUrl = urlParams.get('city');
     const typeFromUrl = urlParams.get('type');
     const parkingFromUrl = urlParams.get('parking');
     const furnishedFromUrl = urlParams.get('furnished');
@@ -30,6 +31,7 @@ export default function Search() {
 
     if (
       searchTermFromUrl ||
+      cityFromUrl ||
       typeFromUrl ||
       parkingFromUrl ||
       furnishedFromUrl ||
@@ -39,6 +41,7 @@ export default function Search() {
     ) {
       setSidebardata({
         searchTerm: searchTermFromUrl || '',
+        city: cityFromUrl || '',
         type: typeFromUrl || 'all',
         parking: parkingFromUrl === 'true' ? true : false,
         furnished: furnishedFromUrl === 'true' ? true : false,
@@ -79,6 +82,10 @@ export default function Search() {
       setSidebardata({ ...sidebardata, searchTerm: e.target.value });
     }
 
+    if (e.target.id === 'city') {
+      setSidebardata({ ...sidebardata, city: e.target.value });
+    }
+
     if (
       e.target.id === 'parking' ||
       e.target.id === 'furnished' ||
@@ -104,6 +111,7 @@ export default function Search() {
     e.preventDefault();
     const urlParams = new URLSearchParams();
     urlParams.set('searchTerm', sidebardata.searchTerm);
+    urlParams.set('city', sidebardata.city);
     urlParams.set('type', sidebardata.type);
     urlParams.set('parking', sidebardata.parking);
     urlParams.set('furnished', sidebardata.furnished);
@@ -128,12 +136,12 @@ export default function Search() {
     setListings([...listings, ...data]);
   };
   return (
-    <div className='flex flex-col md:flex-row'>
+    <div className='flex flex-col md:flex-row '>
       <div className='p-7  border-b-2 md:border-r-2 md:min-h-screen'>
-        <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
+        <form onSubmit={handleSubmit} className='text-slate-800 flex flex-col gap-8'>
           <div className='flex items-center gap-2'>
             <label className='whitespace-nowrap font-semibold'>
-              Search Term:
+              Hirdetés címe
             </label>
             <input
               type='text'
@@ -144,6 +152,20 @@ export default function Search() {
               onChange={handleChange}
             />
           </div>
+          <div className='flex items-center gap-2'>
+            <label className='whitespace-nowrap font-semibold'>
+              Város:
+            </label>
+            <input
+              type='text'
+              id='city'
+              placeholder='Search...'
+              className='border rounded-lg p-3 w-full'
+              value={sidebardata.city}
+              onChange={handleChange}
+            />
+          </div>
+          
           <div className='flex gap-2 flex-wrap items-center'>
             <label className='font-semibold'>Type:</label>
             <div className='flex gap-2'>
@@ -210,28 +232,28 @@ export default function Search() {
               <span>Furnished</span>
             </div>
           </div>
-          <div className='flex items-center gap-2'>
-            <label className='font-semibold'>Sort:</label>
+          <div className='flex items-center gap-2 text-slate-800'>
+            <label className='font-semibold text-slate-200'>Listázás:</label>
             <select
               onChange={handleChange}
               defaultValue={'created_at_desc'}
               id='sort_order'
               className='border rounded-lg p-3'
             >
-              <option value='regularPrice_desc'>Price high to low</option>
-              <option value='regularPrice_asc'>Price low to hight</option>
-              <option value='createdAt_desc'>Latest</option>
-              <option value='createdAt_asc'>Oldest</option>
+              <option value='regularPrice_desc'>Ár szerint csökkenő</option>
+              <option value='regularPrice_asc'>Ár szerint növekvő</option>
+              <option value='createdAt_desc'>Legfrisebb</option>
+              <option value='createdAt_asc'>Legrégebbi</option>
             </select>
           </div>
           <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95'>
-            Search
+            Keresés
           </button>
         </form>
       </div>
       <div className='flex-1'>
-        <h1 className='text-3xl font-semibold border-b p-3 text-slate-700 mt-5'>
-          Listing results:
+        <h1 className='text-3xl font-semibold border-b p-3 text-slate-200 mt-5'>
+          A keresés eredményei:
         </h1>
         <div className='p-7 flex flex-wrap gap-4'>
           {!loading && listings.length === 0 && (

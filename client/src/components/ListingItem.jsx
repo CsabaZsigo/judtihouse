@@ -20,29 +20,33 @@ export default function ListingItem({ listing }) {
           <div className='flex items-center gap-1'>
             <MdLocationOn className='h-4 w-4 text-green-700' />
             <p className='text-sm text-gray-600 truncate w-full'>
-              {listing.address}
+              {listing.city}
             </p>
           </div>
           <p className='text-sm text-gray-600 line-clamp-2'>
             {listing.description}
           </p>
           <p className='text-slate-500 mt-2 font-semibold '>
-            $
+            
             {listing.offer
-              ? listing.discountPrice.toLocaleString('en-US')
-              : listing.regularPrice.toLocaleString('en-US')}
-            {listing.type === 'rent' && ' / month'}
+              ? listing.discountPrice.toLocaleString('hu-HU')
+              : listing.regularPrice.toLocaleString('hu-HU')}
+            {listing.type === 'rent' && ' / hónap'}
+            {' '}Forint
           </p>
           <div className='text-slate-700 flex gap-4'>
             <div className='font-bold text-xs'>
               {listing.bedrooms > 1
-                ? `${listing.bedrooms} beds `
-                : `${listing.bedrooms} bed `}
+                ? `${listing.rooms} szoba `
+                : `${listing.rooms} szoba `}
             </div>
             <div className='font-bold text-xs'>
               {listing.bathrooms > 1
-                ? `${listing.bathrooms} baths `
-                : `${listing.bathrooms} bath `}
+                ? `${listing.bathrooms} fürdőszoba `
+                : `${listing.bathrooms} fürdőszoba `}
+            </div>
+            <div className='font-bold text-xs flex'>
+              {`${listing.buildingArea}  `}<p>m<sup>2</sup></p>
             </div>
           </div>
         </div>
