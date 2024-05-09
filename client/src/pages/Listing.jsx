@@ -91,13 +91,13 @@ export default function Listing() {
             />
           </div>
           {copied && (
-            <p className='fixed top-[23%] right-[5%] z-10 rounded-md bg-slate-100 p-2'>
+            <p className='fixed top-[23%] right-[5%] z-10 rounded-md bg-slate-100 text-gray-900 p-2'>
               Hivatkozás kimásolva
             </p>
           )}
 
             <p className='text-2xl font-semibold'>
-              {listing.name} {' '}
+              {listing.name} <br /> {' '}
               {listing.offer
                 ? listing.discountPrice.toLocaleString('hu-HU')
                 : listing.regularPrice.toLocaleString('hu-HU')}
@@ -131,8 +131,8 @@ export default function Listing() {
               {listing.city}
             </p>
 
-            <p className='text-slate-200 text-xl'>
-                            {listing.description}
+            <p className=' whitespace-pre-line text-slate-200 text-xl'>
+                            {listing.description}.text
             </p>
 
             {/* {currentUser && listing.userRef !== currentUser._id && !contact && (
