@@ -94,13 +94,18 @@ export const getListings = async (req, res, next) => {
     
     const city = req.query.city || '';
 
+    const basebuildingAreaDropdown = req.query.basebuildingAreaDropdown || '';
+
+    const basebuildingArea = req.query.basebuildingArea || '';
+
     const sort = req.query.sort || 'createdAt';
 
     const order = req.query.order || 'desc';
 
     const listings = await Listing.find({
       name: { $regex: searchTerm, $options: 'i' },
-      city: { $regex: city, $options: 'i' },
+      city: { $regex: city, $options: 'i' },     
+        buildingArea: { $lte: basebuildingArea},  // gte = greater than
       offer,
       // furnished,
       // parking,

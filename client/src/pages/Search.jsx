@@ -8,6 +8,8 @@ export default function Search() {
     searchTerm: '',
     type: 'all',
     parking: false,
+    basebuildingAreaDropdown: 'bigger',
+    basebuildingArea: '',
     furnished: false,
     offer: false,
     sort: 'created_at',
@@ -25,6 +27,8 @@ export default function Search() {
     const typeFromUrl = urlParams.get('type');
     const parkingFromUrl = urlParams.get('parking');
     const furnishedFromUrl = urlParams.get('furnished');
+    const buldingAreaFromUrl = urlParams.get('basebuildingArea');
+    const basebuildingAreaDropdownFromUrl = urlParams.get('basebuildingAreaDropdown')
     const offerFromUrl = urlParams.get('offer');
     const sortFromUrl = urlParams.get('sort');
     const orderFromUrl = urlParams.get('order');
@@ -33,6 +37,8 @@ export default function Search() {
       searchTermFromUrl ||
       cityFromUrl ||
       typeFromUrl ||
+      buldingAreaFromUrl ||
+      basebuildingAreaDropdownFromUrl ||
       parkingFromUrl ||
       furnishedFromUrl ||
       offerFromUrl ||
@@ -43,6 +49,8 @@ export default function Search() {
         searchTerm: searchTermFromUrl || '',
         city: cityFromUrl || '',
         type: typeFromUrl || 'all',
+        basebuildingArea: buldingAreaFromUrl || '',
+        basebuildingAreaDropDown: basebuildingAreaDropdownFromUrl || 'bigger',
         parking: parkingFromUrl === 'true' ? true : false,
         furnished: furnishedFromUrl === 'true' ? true : false,
         offer: offerFromUrl === 'true' ? true : false,
@@ -86,6 +94,16 @@ export default function Search() {
       setSidebardata({ ...sidebardata, city: e.target.value });
     }
 
+    
+    if (e.target.id === 'basebuildingAreaDropdown') {
+      setSidebardata({ ...sidebardata, basebuildingAreaDropdown: e.target.value });
+    }
+
+    
+    if (e.target.id === 'basebuildingArea') {
+      setSidebardata({ ...sidebardata, basebuildingArea: e.target.value });
+    }
+
     if (
       e.target.id === 'parking' ||
       e.target.id === 'furnished' ||
@@ -114,12 +132,15 @@ export default function Search() {
     urlParams.set('city', sidebardata.city);
     urlParams.set('type', sidebardata.type);
     urlParams.set('parking', sidebardata.parking);
+    urlParams.set('basebuildingAreaDropdown', sidebardata.basebuildingAreaDropdown),
+    urlParams.set('basebuildingArea', sidebardata.basebuildingArea),
     urlParams.set('furnished', sidebardata.furnished);
     urlParams.set('offer', sidebardata.offer);
     urlParams.set('sort', sidebardata.sort);
     urlParams.set('order', sidebardata.order);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
+    console.log(searchQuery);
   };
 
   const onShowMoreClick = async () => {
@@ -162,6 +183,26 @@ export default function Search() {
               placeholder='Search...'
               className='border rounded-lg p-3 w-full'
               value={sidebardata.city}
+              onChange={handleChange}
+            />
+          </div>
+          <div className='flex items-center gap-2 text-slate-800'>
+            <label className='font-semibold text-slate-200'>Alapterület:</label>
+            <select
+              onChange={handleChange}
+              defaultValue={'bigger'}
+              id='basebuildingAreaDropdown'
+              className='border rounded-lg p-3'
+            >
+              <option value='smaller'>Kisebb mint</option>
+              <option value='bigger'>Nagyobb mint</option>
+            </select>
+            <input
+              type='number'
+              id='basebuildingArea'
+              placeholder='alapterület'
+              className='border rounded-lg p-3 w-full'
+              value={sidebardata.basebuildingArea}
               onChange={handleChange}
             />
           </div>
