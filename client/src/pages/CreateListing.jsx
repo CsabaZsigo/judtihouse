@@ -222,11 +222,11 @@ export default function CreateListing() {
 
   };
   return (
-    <main className='p-3 max-w-5xl mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>
+    <main className='p-3 max-w-5xl mx-auto text-slate-800'>
+      <h1 className='text-slate-200 text-3xl font-semibold text-center my-7'>
       Új ingatlan felvitele
       </h1>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-4 bg-slate-600 p-5 rounded'>
 
         <h1 className='bg-slate-400 rounded-lg p-1 mb-1 font-medium'>Elhelyezkedés</h1>
           <div className='flex items-center gap-2 flex-wrap'>
