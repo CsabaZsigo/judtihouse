@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ListingItem from '../components/ListingItem';
 
-export default function Search() {
+export default function Customer() {
   const navigate = useNavigate();
   const [sidebardata, setSidebardata] = useState({
     searchTerm: '',
@@ -291,6 +291,9 @@ export default function Search() {
           <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95'>
             Keresés
           </button>
+          <Link to={"/create-customer"} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 flex justify-center'>
+            <span>Ügyfél létrehozása</span>
+          </Link>
         </form>
       </div>
       <div className='flex-1'>

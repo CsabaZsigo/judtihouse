@@ -14,6 +14,7 @@ import ContactMe from './pages/ContactMe';
 import Footer from './components/Footer';
 import Tnc from './pages/Tnc';
 import Header2 from './components/Header2';
+import Customer from './pages/Customer';
 
 export default function App() {
   return (
@@ -28,11 +29,13 @@ export default function App() {
         <Route path='/contactme' element={<ContactMe />} />
         <Route path='/tnc' element={<Tnc />} />
         <Route path='/search' element={<Search />} />
+        <Route path='/customer' element={<Customer />} />
         <Route path='/listing/:listingId' element={<Listing />} />
 
         <Route element={<PrivateRoute />}>
           <Route path='/profile' element={<Profile />} />
           <Route path='/create-listing' element={<CreateListing />} />
+          <Route path='/create-customer' element={<CreateListing />} />
           <Route
             path='/update-listing/:listingId'
             element={<UpdateListing />}
