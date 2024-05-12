@@ -181,6 +181,7 @@ export default function Search() {
               type='text'
               id='city'
               placeholder='Search...'
+              defaultValue={''}
               className='border rounded-lg p-3 w-full'
               value={sidebardata.city}
               onChange={handleChange}

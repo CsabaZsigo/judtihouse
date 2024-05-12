@@ -94,9 +94,13 @@ export const getListings = async (req, res, next) => {
     
     const city = req.query.city || '';
 
-    const basebuildingAreaDropdown = req.query.basebuildingAreaDropdown || '';
+    const basebuildingAreaDropdown = req.query.basebuildingAreaDropdown || 'bigger'; 
+    const basebuildingAreaFromQuery = req.query.basebuildingArea || 0; 
+    const basebuildingAreaMin = (basebuildingAreaDropdown === 'bigger') ? basebuildingAreaFromQuery : 0;
+    const basebuildingAreaMax = (basebuildingAreaDropdown === 'smaller') ? basebuildingAreaFromQuery : 1000000;
 
-    const basebuildingArea = req.query.basebuildingArea || '';
+
+
 
     const sort = req.query.sort || 'createdAt';
 
@@ -105,7 +109,7 @@ export const getListings = async (req, res, next) => {
     const listings = await Listing.find({
       name: { $regex: searchTerm, $options: 'i' },
       city: { $regex: city, $options: 'i' },     
-        buildingArea: { $lte: basebuildingArea},  // gte = greater than
+      buildingArea: { $lte: basebuildingAreaMax, $gte:basebuildingAreaMin},  // gte = greater than
       offer,
       // furnished,
       // parking,
