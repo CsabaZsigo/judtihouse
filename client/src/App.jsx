@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import CreateListing from './pages/CreateListing';
+import CreateCustomer from './pages/CreateCustomer';
 import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
@@ -29,13 +30,14 @@ export default function App() {
         <Route path='/contactme' element={<ContactMe />} />
         <Route path='/tnc' element={<Tnc />} />
         <Route path='/search' element={<Search />} />
-        <Route path='/customer' element={<Customer />} />
         <Route path='/listing/:listingId' element={<Listing />} />
 
         <Route element={<PrivateRoute />}>
           <Route path='/profile' element={<Profile />} />
           <Route path='/create-listing' element={<CreateListing />} />
-          <Route path='/create-customer' element={<CreateListing />} />
+          <Route path='/customer' element={<Customer />} />
+          <Route path='/create-customer' element={<CreateCustomer />} />
+          
           <Route
             path='/update-listing/:listingId'
             element={<UpdateListing />}

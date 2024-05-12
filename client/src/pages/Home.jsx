@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <div>
       {/* top */}
-      <p className='text-slate-400 text-3xl'>Pittner Györgyné Judit</p>
+      <p className='text-slate-400 p-7 pb-1 text-3xl'>Pittner Györgyné Judit</p>
       <div className='flex'>
       <img className='flex-initial w-1/5 object-cover ' src="https://github.com/CsabaZsigo/judtihouse/blob/main/client/src/assets/images/profile.jpg?raw=true" alt="Judit profilkép" />
       <img className='flex-initial w-4/5 ' src="https://raw.githubusercontent.com/CsabaZsigo/judtihouse/main/client/src/assets/images/logo.webp" alt="JuditHouse Logo" />
@@ -64,13 +64,6 @@ export default function Home() {
           Várom hívását, hogy segíthessek!
           </Link>
         </div>
-        <Link
-          to={'/'}
-          className='text-xs sm:text-sm text-blue-800 font-bold hover:underline'
-        >
-          Keresésre fel!
-        </Link>
-        
         <ul className="text-2xl	place-content-evenly flex items-center flex-col md:flex-row md:gap-3">
        
           <Link to='/about'>
