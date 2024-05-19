@@ -83,12 +83,12 @@ export default function CreateCustomer() {
     bankName: '',
     estimatedValue: 0,
   });
-  const [imageUploadError, setImageUploadError] = useState(false);
+
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   console.log(formData);
-  
+ 
 
   const storeImage = async (file) => {
     return new Promise((resolve, reject) => {
@@ -190,31 +190,20 @@ export default function CreateCustomer() {
       <h1 className='text-3xl text-slate-200 font-semibold text-center my-7'>
       Új ügyfél felvitele
       </h1>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4 bg-slate-600 p-5 rounded'>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-4 bg-slate-500 p-5 rounded'>
 
               <h1 className='bg-slate-400 rounded-lg p-1 mb-1 font-medium'>Személyes adatok</h1>
               <div class="flex items-center gap-2 flex-wrap">
                   <input
                     type='text'
-                    placeholder='Tulajdonos neve'
+                    placeholder='Név'
                     className='border p-3 rounded-lg'
-                    id='ownerName'
+                    id='CustomerName'
                     maxLength='62'
                     minLength='3'
                     required
                     onChange={handleChange}
-                    value={formData.ownerName}
-                  />
-
-                  <input
-                    type='text'
-                    placeholder='Cégnév'
-                    className='border p-3 rounded-lg'
-                    id='companyName'
-                    maxLength='62'
-                    minLength='10'
-                    onChange={handleChange}
-                    value={formData.companyName}
+                    value={formData.CustomerName}
                   />
 
                   <input 
@@ -226,6 +215,28 @@ export default function CreateCustomer() {
                     required
                     onChange={handleChange}
                     value={formData.phone}>
+                  </input>
+
+                  <input 
+                    type="tel" 
+                    className='border p-3 rounded-lg'
+                    id="phone2"
+                    name="phone2"
+                    placeholder="+36 30 123 4567"
+                    
+                    onChange={handleChange}
+                    value={formData.phone2}>
+                  </input>
+
+                  <input 
+                    type="tel" 
+                    className='border p-3 rounded-lg'
+                    id="phone3"
+                    name="phone3"
+                    placeholder="+36 30 123 4567"
+                    
+                    onChange={handleChange}
+                    value={formData.phone3}>
                   </input>
 
                   <input
@@ -261,61 +272,34 @@ export default function CreateCustomer() {
                   </div>
                   <h1 className='bg-slate-400 rounded-lg p-1 mb-1 font-medium'>Kereslet</h1>
                   <div className='flex-row flex gap-2 max-h-6'>
+                  <p>Szándék:</p>
                   <div className='flex gap-2'>
-              <input
-                type='radio'
-                id='sale'
-                name='radioSale'
-                className='w-5'
-                onChange={handleChange}
-                // checked={formData.type === 'sale'}
-              />
-              <span>Eladás</span>
-            </div>
-            <div className='flex gap-2'>
-              <input
-                type='radio'
-                id='rent'
-                name='radioSale'
-                className='w-5'
-                onChange={handleChange}
-                // checked={formData.type === 'rent'}
-              />
-              <span>Bérbeadás</span>
-                  </div>
-            
-            <div className='flex gap-2'>
-              <input
-                type='checkbox'
-                id='offer'
-                className='w-5'
-                onChange={handleChange}
-                checked={formData.offer}
-              />
-              <span>Akció</span>
-              {formData.offer && (
-              <div className='flex items-center gap-2'>
                 <input
-                  type='number'
-                  id='discountPrice'
-                  min='0'
-                  max='10000000'
-                  required
-                  className='p-3 border border-gray-300 rounded-lg'
+                  type='checkbox'
+                  id='sale'
+                  name='sale'
+                  className='w-5'
                   onChange={handleChange}
-                  value={formData.discountPrice}
+                  // checked={formData.type === 'sale'}
                 />
-                <div className='flex flex-col items-center'>
-                  <p>Akciós ár</p>
-
-                  {formData.type === 'rent' && (
-                    <span className='text-xs'>(Forint / hónap)</span>
-                  )}
-                </div>
-              </div>
-            )}
-
-<div className='flex items-center gap-2'>
+                <span>Eladás</span>
+               </div>
+                 <div className='flex gap-2'>
+                  <input
+                    type='checkbox'
+                    id='rent'
+                    name='rent'
+                    className='w-5'
+                    onChange={handleChange}
+                    // checked={formData.type === 'rent'}
+                  />
+                  <span>Bérbeadás</span>
+                  </div>
+                  <div></div>
+            
+          <div className='flex gap-2'>
+         
+          <div className='flex items-center gap-2'>
               <input
                 type='number'
                 id='regularPrice'
@@ -326,40 +310,31 @@ export default function CreateCustomer() {
                 onChange={handleChange}
                 value={formData.regularPrice}
               />
-              <div className='flex flex-col items-center'>
-                <p>Irányár</p>
-                {formData.type === 'rent' && (
-                  <span className='text-xs'>(Forint / hónap)</span>
-                )}
-              </div>
             </div>
             </div>
             </div>
-        <div className='flex flex-col gap-4 flex-1'>
-          <input
-            type='text'
-            placeholder='Főcím'
-            className='border p-3 rounded-lg'
-            id='name'
-            maxLength='62'
-            minLength='10'
-            required
-            onChange={handleChange}
-            value={formData.name}
-          />
+            <div className='flex gap-2 items-center'>
+            <p>Eladhatóság</p>
+                    <select type='dropdown' id='sellability' className='p-3 border border-gray-300 rounded-lg' onChange={handleSelect}   value={formData.sellability}>      
+                      <option value="minimális">minimális</option>
+                      <option value="⭐">⭐</option>
+                      <option value="⭐⭐">⭐⭐</option>
+                    </select>
+              
+            </div>
+            <div className='flex flex-col gap-4 flex-1'>
+          <p>Motiváció:</p>
           <textarea
             type='text'
-            placeholder='Leírás'
+            placeholder='Motiváció'
             className='border p-3 rounded-lg'
             id='description'
-            rows="10"
+            rows="4"
             required
             onChange={handleChange}
             value={formData.description}
-          />
-
-            
-          </div>
+            />
+            </div>
           <div className='flex flex-wrap gap-6'>
           </div>
 

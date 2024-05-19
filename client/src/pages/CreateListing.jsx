@@ -226,7 +226,7 @@ export default function CreateListing() {
       <h1 className='text-slate-200 text-3xl font-semibold text-center my-7'>
       Új ingatlan felvitele
       </h1>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4 bg-slate-600 p-5 rounded'>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-4 bg-slate-500 p-5 rounded'>
 
         <h1 className='bg-slate-400 rounded-lg p-1 mb-1 font-medium'>Elhelyezkedés</h1>
           <div className='flex items-center gap-2 flex-wrap'>
