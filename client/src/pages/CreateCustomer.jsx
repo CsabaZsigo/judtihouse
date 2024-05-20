@@ -335,34 +335,167 @@ export default function CreateCustomer() {
             value={formData.description}
             />
             </div>
+
+            <div className='flex gap-2 items-center'>
             <p>Keresési terület:</p>
-            <select id="searchingRegio"
-            name="searchingRegio"
-            onchange={handleChange}>
-                <option value="Összes megye">Összes megye</option>
-                <option value="Bács-Kiskun">Bács-Kiskun</option>
-                <option value="Baranya">Baranya</option>
-                <option value="Békés">Békés</option>
-                <option value="Borsod-Abaúj-Zemplén">Borsod-Abaúj-Zemplén</option>
-                <option value="Csongrád">Csongrád</option>
-                <option value="Fejér">Fejér</option>
-                <option value="Győr-Moson-Sopron">Győr-Moson-Sopron</option>
-                <option value="Hajdú-Bihar">Hajdú-Bihar</option>
-                <option value="Heves">Heves</option>
-                <option value="Jász-Nagykun-Szolnok">Jász-Nagykun-Szolnok</option>
-                <option value="Komárom-Esztergom">Komárom-Esztergom</option>
-                <option value="Nógrád">Nógrád</option>
-                <option value="Pest">Pest</option>
-                <option value="Somogy">Somogy</option>
-                <option value="Szabolcs-Szatmár-Bereg">Szabolcs-Szatmár-Bereg</option>
-                <option value="Tolna">Tolna</option>
-                <option value="Vas">Vas</option>
-                <option value="Veszprém">Veszprém</option>
-                <option value="Zala">Zala</option>
-                <option value="Budapest">Budapest</option>
-                <option value="Balaton">Balaton</option>
-                <option value="Külföld">Külföld</option>
+            <input
+            type='text'
+            placeholder='terület'
+            className='border p-3 rounded-lg'
+            id='position'
+            rows="1"
+            required
+            onChange={handleChange}
+            value={formData.position}
+            />
+            </div>
+            <div className='flex gap-2 items-center'>
+            <p>Típus/altípus</p>
+                    <select type='dropdown' id='sellability' className='p-3 border border-gray-300 rounded-lg' onChange={handleSelect}   value={formData.sellability}>      
+                    <optgroup label="lakás">
+                <option value="panel lakás">panel lakás</option>
+                <option value="tégla lakás">tégla lakás</option>
+              </optgroup>    
+              <optgroup label="ház">
+                <option value="panel lakás">családi ház</option>
+                <option value="tanya">tanya</option>
+                <option value="parasztházs">parasztház</option>
+                <option value="sorház">sorház</option>
+                <option value="házrész">házrész</option>
+                <option value="ikerház">ikerház</option>
+              </optgroup>
+              <optgroup label="telek">
+                <option value="építési telek">építési telek</option>
+                <option value="üdülőövezeti telek">üdülőövezeti telek</option>
+                <option value="külterületi telek">külterületi telek</option>
+                <option value="egyéb telek">egyéb telek</option>
+              </optgroup>
+              <optgroup label="nyaraló">
+                <option value="üdülő">üdülő</option>
+                <option value="zártkert">zártkert</option>
+                <option value="üdülési jog">üdülési jog</option>
+              </optgroup>
+              <optgroup label="garázs">
+                <option value="egyedi garázs">egyedi garázs</option>
+                <option value="teremgarázs">teremgarázs</option>
+                <option value="parkolóhely">parkolóhely</option>
+              </optgroup>
+              <optgroup label="luxus ingatlan">
+                <option value="kastély, kúria">kastély, kúria</option>
+                <option value="luxus villa">luxus villa</option>
+                <option value="luxus lakás">luxus lakás</option>
+              </optgroup>
+              <optgroup label="üzleti ingatlan">
+                <option value="mezőgazdasági">mezőgazdasági</option>
+                <option value="egyéb">egyéb</option>
+                <option value="iroda">iroda</option>
+                <option value="kereskedelmi">kereskedelmi</option>
+                <option value="ipari ingatlan">ipari ingatlan</option>
+                <option value="bérlemény">bérlemény</option>
+                <option value="vendeglátó egység">vendeglátó egység</option>
+              </optgroup>
+                    </select>
+              
+            </div>
+            <div className='flex gap-2 items-center'>
+            <p>Eladhatóság</p>
+                    <select type='dropdown' id='sellability' className='p-3 border border-gray-300 rounded-lg' onChange={handleSelect}   value={formData.sellability}>      
+                      <option value="minimális">minimális</option>
+                      <option value="⭐">⭐</option>
+                      <option value="⭐⭐">⭐⭐</option>
+                    </select>
+              
+            </div>
+            <div className='flex gap-2 items-center'>
+            <p>Állag</p>
+            <select type='dropdown' id='status' className='p-3 border border-gray-300 rounded-lg' onChange={handleSelect}   value={formData.status}>      
+                <option value="újépítésű">újépítésű</option>
+                <option value="újszerű">újszerű</option>
+                <option value="felújított">felújított</option>
+                <option value="átlagos">átlagos</option>
+                <option value="felújítandó">felújítandó</option>
+                <option value="befejezetlen">befejezetlen</option>
+                <option value="bontandó">bontandó</option>
               </select>
+              </div>
+              <div className='flex items-center gap-2'>
+                <p>Ár 
+              <input
+                type='number'
+                id='priceMin'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.priceMin}
+              />
+               - 
+              <input
+                type='number'
+                id='priceMax'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.priceMax}
+              />
+              Ft</p>
+            </div>
+
+            <div className='flex items-center gap-2'>
+                <p>Alapterület 
+              <input
+                type='number'
+                id='baseMin'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.baseMin}
+              />
+               - 
+              <input
+                type='number'
+                id='baseMax'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.baseMax}
+              />
+              m<sup>2</sup></p>
+            </div>
+
+            <div className='flex items-center gap-2'>
+                <p>Szobák 
+              <input
+                type='number'
+                id='roomsMin'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.roomsMin}
+              />
+               - 
+              <input
+                type='number'
+                id='roomsMax'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.roomsMax}
+              />
+              </p>
+            </div>
+            <div className='flex gap-2 items-center'>
+            <p>Egyéb:</p>
+            <textarea
+            type='text'
+            className='border p-3 rounded-lg'
+            id='position'
+            rows="1"
+            required
+            onChange={handleChange}
+            value={formData.position}
+            />
+            </div>
+            
           <div className='flex flex-wrap gap-6'>
           </div>
 
